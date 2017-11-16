@@ -8,10 +8,12 @@
       </li>
    </ol>
    <h2>Cons:</h2>
+   <ol>
       <li v-for="con in cons">
          <span><strong>{{con.text}}: </strong></span>
          <span>{{con.value}}</span>
       </li>
+   </ol>
       <span v-if="cons.length === 0"><i>There are no cons</i></span>
    <div>
       <h2>Total:</h2>
