@@ -28,7 +28,7 @@ export default {
       totalCons() {
          return 0; //impl
       },
-      overal() {
+      overall() {
          return this.totalProc - this.totalCons;
       }
    }

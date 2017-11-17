@@ -1,0 +1,11 @@
+{
+   "Crusovice": {
+      "label": {
+         "main": "Here is a {beer} template",
+         "pros": "Pros:",
+         "cons": "Cons:",
+         "total": "Total:",
+         "emptyCons": "There are no cons"
+      }
+   }
+}

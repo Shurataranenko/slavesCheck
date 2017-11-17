@@ -1,22 +1,22 @@
 <div>
-   <h1>Here is a {{beer}} template</h1>
-   <h2>Proc:</h2>
+   <h1>{{$t('Crusovice.label.main', { beer: beer })}}</h1>
+   <h2>{{$t('Crusovice.label.pros')}}</h2>
    <ol>
       <li v-for="proc in procs">
          <span><strong>{{proc.text}}: </strong></span>
          <span>{{proc.value}}</span>
       </li>
    </ol>
-   <h2>Cons:</h2>
+   <h2>{{$t('Crusovice.label.pros')}}</h2>
    <ol>
       <li v-for="con in cons">
          <span><strong>{{con.text}}: </strong></span>
          <span>{{con.value}}</span>
       </li>
    </ol>
-      <span v-if="cons.length === 0"><i>There are no cons</i></span>
+      <span v-if="cons.length === 0"><i>{{$t('Crusovice.label.emptyCons')}}</i></span>
    <div>
-      <h2>Total:</h2>
-      <p>{{overal}}</p>
+      <h2>{{$t('Crusovice.label.total')}}</h2>
+      <p>{{overall}}</p>
    </div>
 </div>
