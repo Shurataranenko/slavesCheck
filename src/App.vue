@@ -4,6 +4,7 @@
       <h1>Beers</h1>
       <ul>
         <li><router-link to="/crusovice">Crusovice</router-link></li>
+        <li><router-link to="/holsten">Holsten</router-link></li>    
       </ul>
     </div>
     <router-view></router-view>

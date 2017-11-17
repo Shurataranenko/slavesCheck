@@ -2,7 +2,7 @@ export default {
    data () {
       return {
          beer: 'Crusovice',
-         procs: [
+         pros: [
             {
                text: 'Taste',
                value: 5
@@ -22,8 +22,8 @@ export default {
       }
    },
    computed: {
-      totalProc() {
-         return this.procs.reduce((total, proc) => total + proc.value, 0);
+      totalPro() {
+         return this.pros.reduce((total, pro) => total + pro.value, 0);
       },
       totalCons() {
          return 0; //impl
