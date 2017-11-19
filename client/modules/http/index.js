@@ -12,7 +12,7 @@ class Http {
       });
       Vue.prototype.$http = (instance => {
          return {
-            get: (path) => instance.get(path)
+            get: (path) => instance.get(path).then(response => response.data)
          };
       })(_instance);
    }

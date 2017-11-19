@@ -10,22 +10,31 @@ export default {
       const vm = this;
       this.$http.get('/data')
       .then(data => {
-         [].push.apply(vm.pros, data);
-         [].push.apply(vm.cons, data);
+         vm.pros = data.pros;
+         vm.cons = data.cons;
       })
       .catch(err => {
          console.log(err);
       });
    },
    computed: {
-      totalPro() {
+      totalPros() {
          return this.pros.reduce((total, pro) => total + pro.value, 0);
       },
       totalCons() {
          return this.cons.reduce((total, con) => total + con.value, 0);
       },
       overall() {
-         return this.totalProc - this.totalCons;
+         return this.totalPros - this.totalCons;
+      }
+   },
+   filters: {
+      capitalize: function (value) {
+         if (!value) {
+            return '';
+         }
+         value = value.toString();
+         return value.charAt(0).toUpperCase() + value.slice(1);
       }
    }
 }

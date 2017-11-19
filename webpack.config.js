@@ -1,11 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './client/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '',
     filename: 'build.js'
   },
   module: {
@@ -59,7 +60,11 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    port: 3031,
+    proxy: {
+      '/': 'http://localhost:3030'
+    }
   },
   performance: {
     hints: false
@@ -70,11 +75,12 @@ module.exports = {
 if (process.env.NODE_ENV === 'production') {
   module.exports.devtool = '#source-map'
   // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
+  module.exports.plugins = [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
+      },
+      SRV_PORT: process.env.PORT || 3030
     }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
@@ -84,6 +90,17 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
+    }),
+    new HtmlWebpackPlugin({
+      template: 'index.html',
+      inject: false
     })
-  ])
+  ];
+}
+else {
+  module.exports.plugins = [
+    new webpack.DefinePlugin({
+      SRV_PORT: 3031
+    })
+  ];
 }

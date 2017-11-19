@@ -3,17 +3,17 @@
    <h2>{{$t('Crusovice.label.pros')}}</h2>
    <ol>
       <li v-for="pro in pros">
-         <span><strong>{{pro.text}}: </strong></span>
+         <span><strong>{{pro.text | capitalize}}: </strong></span>
          <span>{{pro.value}}</span>
       </li>
-      <span v-if="cons.length === 0">
+      <span v-if="pros.length === 0">
          <i>{{$t('Crusovice.label.emptyCons')}}</i>
       </span>
    </ol>
    <h2>{{$t('Crusovice.label.cons')}}</h2>
    <ol>
       <li v-for="con in cons">
-         <span><strong>{{con.text}}: </strong></span>
+         <span><strong>{{con.text | capitalize}}: </strong></span>
          <span>{{con.value}}</span>
       </li>
    </ol>
