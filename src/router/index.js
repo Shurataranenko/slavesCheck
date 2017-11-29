@@ -1,3 +1,4 @@
+import Staropramen from '../components/Staropramen/Staropramen.vue';
 import Crusovice from '../components/Crusovice/Crusovice.vue';
 
 export default [
@@ -5,7 +6,11 @@ export default [
       path: '/', redirect: '/crusovice'
    },
    {
-      path: '/crusovice',
-      component: Crusovice
+      path: '/staropramen',
+      component: Staropramen
+   },
+   {
+   path: '/crusovice',
+   component: Crusovice
    }
 ];

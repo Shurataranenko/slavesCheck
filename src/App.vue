@@ -3,6 +3,7 @@
     <div>
       <h1>Beers</h1>
       <ul>
+        <li><router-link to="/staropramen">Staropramen</router-link></li>
         <li><router-link to="/crusovice">Crusovice</router-link></li>
       </ul>
     </div>
